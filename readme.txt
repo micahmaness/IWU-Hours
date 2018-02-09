@@ -1,6 +1,4 @@
 User Stories
 
-1st Bi-weekly User Stories:
--Opens and says IWU hours at the top of the app
--App opens and shows when things are open and closed (not automated yet - manually input)
+-App opens and shows when things are open and closed and displays text "IWU hours" at the top(not automated yet - manually input)
 -Has the ability to change the order of the list based on their preferences
