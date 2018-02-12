@@ -7,11 +7,13 @@ import UIKit
 
 // Implement Table View to Main Story
 class ViewController: UIViewController, UITableViewDataSource {
+    
+    var tableItems = ["Student Center","Baldwin","Wildcat"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 0...1000 {
+        for i in 0...15 {
             data.append("\(i)")
         }
         
