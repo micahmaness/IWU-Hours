@@ -1,10 +1,7 @@
-//
-//  ViewController.swift
-//  IWU-Hours
-//
-//  Created by Micah Maness on 2/8/18.
-//  Copyright © 2018 Micah Maness. All rights reserved.
-//
+// Micah Maness, Matt Babb, Sam Deifenbacher
+// ViewController.swift
+// IWU-Hours
+// We wrote all this code ourselves, we did not copy code.
 
 import UIKit
 
@@ -13,6 +10,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,4 +20,3 @@ class ViewController: UIViewController {
 
 
 }
-
