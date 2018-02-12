@@ -5,6 +5,7 @@
 
 import UIKit
 
+// Implement Table View to Main Story
 class ViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
@@ -23,7 +24,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+ 
+// Number of Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -33,13 +35,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")! //1.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
         
-        let text = data[indexPath.row] //2.
+        let text = data[indexPath.row]
         
-        cell.textLabel?.text = text //3.
+        cell.textLabel?.text = text
         
-        return cell //4.
+        return cell
     }
 
 }
