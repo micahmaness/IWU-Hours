@@ -7,64 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B354544202D2DC000606EF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B354543202D2DC000606EF0 /* AppDelegate.swift */; };
-		0B354546202D2DC000606EF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B354545202D2DC000606EF0 /* ViewController.swift */; };
-		0B354549202D2DC000606EF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B354547202D2DC000606EF0 /* Main.storyboard */; };
-		0B35454B202D2DC000606EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B35454A202D2DC000606EF0 /* Assets.xcassets */; };
-		0B35454E202D2DC000606EF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B35454C202D2DC000606EF0 /* LaunchScreen.storyboard */; };
-		0B354559202D2DC100606EF0 /* IWU_HoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B354558202D2DC100606EF0 /* IWU_HoursTests.swift */; };
-		0B354564202D2DC100606EF0 /* IWU_HoursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B354563202D2DC100606EF0 /* IWU_HoursUITests.swift */; };
+		0B66BF1C2032CAEB00EC515C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66BF1B2032CAEB00EC515C /* AppDelegate.swift */; };
+		0B66BF1E2032CAEB00EC515C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66BF1D2032CAEB00EC515C /* ViewController.swift */; };
+		0B66BF212032CAEB00EC515C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B66BF1F2032CAEB00EC515C /* Main.storyboard */; };
+		0B66BF232032CAEB00EC515C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B66BF222032CAEB00EC515C /* Assets.xcassets */; };
+		0B66BF262032CAEB00EC515C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B66BF242032CAEB00EC515C /* LaunchScreen.storyboard */; };
+		0B66BF312032CAEB00EC515C /* IWU_HoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66BF302032CAEB00EC515C /* IWU_HoursTests.swift */; };
+		0B66BF3C2032CAEB00EC515C /* IWU_HoursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66BF3B2032CAEB00EC515C /* IWU_HoursUITests.swift */; };
+		0B66BF4A2032CD1100EC515C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66BF492032CD1100EC515C /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0B354555202D2DC000606EF0 /* PBXContainerItemProxy */ = {
+		0B66BF2D2032CAEB00EC515C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0B354538202D2DC000606EF0 /* Project object */;
+			containerPortal = 0B66BF102032CAEB00EC515C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0B35453F202D2DC000606EF0;
+			remoteGlobalIDString = 0B66BF172032CAEB00EC515C;
 			remoteInfo = "IWU-Hours";
 		};
-		0B354560202D2DC100606EF0 /* PBXContainerItemProxy */ = {
+		0B66BF382032CAEB00EC515C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0B354538202D2DC000606EF0 /* Project object */;
+			containerPortal = 0B66BF102032CAEB00EC515C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0B35453F202D2DC000606EF0;
+			remoteGlobalIDString = 0B66BF172032CAEB00EC515C;
 			remoteInfo = "IWU-Hours";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B354540202D2DC000606EF0 /* IWU-Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IWU-Hours.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B354543202D2DC000606EF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B354545202D2DC000606EF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0B354548202D2DC000606EF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0B35454A202D2DC000606EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0B35454D202D2DC000606EF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0B35454F202D2DC000606EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B354554202D2DC000606EF0 /* IWU-HoursTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IWU-HoursTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B354558202D2DC100606EF0 /* IWU_HoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWU_HoursTests.swift; sourceTree = "<group>"; };
-		0B35455A202D2DC100606EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B35455F202D2DC100606EF0 /* IWU-HoursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IWU-HoursUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B354563202D2DC100606EF0 /* IWU_HoursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWU_HoursUITests.swift; sourceTree = "<group>"; };
-		0B354565202D2DC100606EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B66BF182032CAEB00EC515C /* IWU-Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IWU-Hours.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B66BF1B2032CAEB00EC515C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0B66BF1D2032CAEB00EC515C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0B66BF202032CAEB00EC515C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0B66BF222032CAEB00EC515C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B66BF252032CAEB00EC515C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B66BF272032CAEB00EC515C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B66BF2C2032CAEB00EC515C /* IWU-HoursTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IWU-HoursTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B66BF302032CAEB00EC515C /* IWU_HoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWU_HoursTests.swift; sourceTree = "<group>"; };
+		0B66BF322032CAEB00EC515C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B66BF372032CAEB00EC515C /* IWU-HoursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IWU-HoursUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B66BF3B2032CAEB00EC515C /* IWU_HoursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWU_HoursUITests.swift; sourceTree = "<group>"; };
+		0B66BF3D2032CAEB00EC515C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B66BF492032CD1100EC515C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0B35453D202D2DC000606EF0 /* Frameworks */ = {
+		0B66BF152032CAEB00EC515C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B354551202D2DC000606EF0 /* Frameworks */ = {
+		0B66BF292032CAEB00EC515C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B35455C202D2DC100606EF0 /* Frameworks */ = {
+		0B66BF342032CAEB00EC515C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,53 +76,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B354537202D2DC000606EF0 = {
+		0B66BF0F2032CAEB00EC515C = {
 			isa = PBXGroup;
 			children = (
-				0B354542202D2DC000606EF0 /* IWU-Hours */,
-				0B354557202D2DC000606EF0 /* IWU-HoursTests */,
-				0B354562202D2DC100606EF0 /* IWU-HoursUITests */,
-				0B354541202D2DC000606EF0 /* Products */,
+				0B66BF1A2032CAEB00EC515C /* IWU-Hours */,
+				0B66BF2F2032CAEB00EC515C /* IWU-HoursTests */,
+				0B66BF3A2032CAEB00EC515C /* IWU-HoursUITests */,
+				0B66BF192032CAEB00EC515C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0B354541202D2DC000606EF0 /* Products */ = {
+		0B66BF192032CAEB00EC515C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0B354540202D2DC000606EF0 /* IWU-Hours.app */,
-				0B354554202D2DC000606EF0 /* IWU-HoursTests.xctest */,
-				0B35455F202D2DC100606EF0 /* IWU-HoursUITests.xctest */,
+				0B66BF182032CAEB00EC515C /* IWU-Hours.app */,
+				0B66BF2C2032CAEB00EC515C /* IWU-HoursTests.xctest */,
+				0B66BF372032CAEB00EC515C /* IWU-HoursUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0B354542202D2DC000606EF0 /* IWU-Hours */ = {
+		0B66BF1A2032CAEB00EC515C /* IWU-Hours */ = {
 			isa = PBXGroup;
 			children = (
-				0B354543202D2DC000606EF0 /* AppDelegate.swift */,
-				0B354545202D2DC000606EF0 /* ViewController.swift */,
-				0B354547202D2DC000606EF0 /* Main.storyboard */,
-				0B35454A202D2DC000606EF0 /* Assets.xcassets */,
-				0B35454C202D2DC000606EF0 /* LaunchScreen.storyboard */,
-				0B35454F202D2DC000606EF0 /* Info.plist */,
+				0B66BF1B2032CAEB00EC515C /* AppDelegate.swift */,
+				0B66BF1D2032CAEB00EC515C /* ViewController.swift */,
+				0B66BF1F2032CAEB00EC515C /* Main.storyboard */,
+				0B66BF222032CAEB00EC515C /* Assets.xcassets */,
+				0B66BF242032CAEB00EC515C /* LaunchScreen.storyboard */,
+				0B66BF272032CAEB00EC515C /* Info.plist */,
+				0B66BF492032CD1100EC515C /* CustomTableViewCell.swift */,
 			);
 			path = "IWU-Hours";
 			sourceTree = "<group>";
 		};
-		0B354557202D2DC000606EF0 /* IWU-HoursTests */ = {
+		0B66BF2F2032CAEB00EC515C /* IWU-HoursTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B354558202D2DC100606EF0 /* IWU_HoursTests.swift */,
-				0B35455A202D2DC100606EF0 /* Info.plist */,
+				0B66BF302032CAEB00EC515C /* IWU_HoursTests.swift */,
+				0B66BF322032CAEB00EC515C /* Info.plist */,
 			);
 			path = "IWU-HoursTests";
 			sourceTree = "<group>";
 		};
-		0B354562202D2DC100606EF0 /* IWU-HoursUITests */ = {
+		0B66BF3A2032CAEB00EC515C /* IWU-HoursUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0B354563202D2DC100606EF0 /* IWU_HoursUITests.swift */,
-				0B354565202D2DC100606EF0 /* Info.plist */,
+				0B66BF3B2032CAEB00EC515C /* IWU_HoursUITests.swift */,
+				0B66BF3D2032CAEB00EC515C /* Info.plist */,
 			);
 			path = "IWU-HoursUITests";
 			sourceTree = "<group>";
@@ -128,13 +131,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0B35453F202D2DC000606EF0 /* IWU-Hours */ = {
+		0B66BF172032CAEB00EC515C /* IWU-Hours */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B354568202D2DC100606EF0 /* Build configuration list for PBXNativeTarget "IWU-Hours" */;
+			buildConfigurationList = 0B66BF402032CAEB00EC515C /* Build configuration list for PBXNativeTarget "IWU-Hours" */;
 			buildPhases = (
-				0B35453C202D2DC000606EF0 /* Sources */,
-				0B35453D202D2DC000606EF0 /* Frameworks */,
-				0B35453E202D2DC000606EF0 /* Resources */,
+				0B66BF142032CAEB00EC515C /* Sources */,
+				0B66BF152032CAEB00EC515C /* Frameworks */,
+				0B66BF162032CAEB00EC515C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -142,72 +145,72 @@
 			);
 			name = "IWU-Hours";
 			productName = "IWU-Hours";
-			productReference = 0B354540202D2DC000606EF0 /* IWU-Hours.app */;
+			productReference = 0B66BF182032CAEB00EC515C /* IWU-Hours.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0B354553202D2DC000606EF0 /* IWU-HoursTests */ = {
+		0B66BF2B2032CAEB00EC515C /* IWU-HoursTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B35456B202D2DC100606EF0 /* Build configuration list for PBXNativeTarget "IWU-HoursTests" */;
+			buildConfigurationList = 0B66BF432032CAEB00EC515C /* Build configuration list for PBXNativeTarget "IWU-HoursTests" */;
 			buildPhases = (
-				0B354550202D2DC000606EF0 /* Sources */,
-				0B354551202D2DC000606EF0 /* Frameworks */,
-				0B354552202D2DC000606EF0 /* Resources */,
+				0B66BF282032CAEB00EC515C /* Sources */,
+				0B66BF292032CAEB00EC515C /* Frameworks */,
+				0B66BF2A2032CAEB00EC515C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0B354556202D2DC000606EF0 /* PBXTargetDependency */,
+				0B66BF2E2032CAEB00EC515C /* PBXTargetDependency */,
 			);
 			name = "IWU-HoursTests";
 			productName = "IWU-HoursTests";
-			productReference = 0B354554202D2DC000606EF0 /* IWU-HoursTests.xctest */;
+			productReference = 0B66BF2C2032CAEB00EC515C /* IWU-HoursTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0B35455E202D2DC100606EF0 /* IWU-HoursUITests */ = {
+		0B66BF362032CAEB00EC515C /* IWU-HoursUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B35456E202D2DC100606EF0 /* Build configuration list for PBXNativeTarget "IWU-HoursUITests" */;
+			buildConfigurationList = 0B66BF462032CAEB00EC515C /* Build configuration list for PBXNativeTarget "IWU-HoursUITests" */;
 			buildPhases = (
-				0B35455B202D2DC100606EF0 /* Sources */,
-				0B35455C202D2DC100606EF0 /* Frameworks */,
-				0B35455D202D2DC100606EF0 /* Resources */,
+				0B66BF332032CAEB00EC515C /* Sources */,
+				0B66BF342032CAEB00EC515C /* Frameworks */,
+				0B66BF352032CAEB00EC515C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0B354561202D2DC100606EF0 /* PBXTargetDependency */,
+				0B66BF392032CAEB00EC515C /* PBXTargetDependency */,
 			);
 			name = "IWU-HoursUITests";
 			productName = "IWU-HoursUITests";
-			productReference = 0B35455F202D2DC100606EF0 /* IWU-HoursUITests.xctest */;
+			productReference = 0B66BF372032CAEB00EC515C /* IWU-HoursUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0B354538202D2DC000606EF0 /* Project object */ = {
+		0B66BF102032CAEB00EC515C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Micah Maness";
 				TargetAttributes = {
-					0B35453F202D2DC000606EF0 = {
+					0B66BF172032CAEB00EC515C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
-					0B354553202D2DC000606EF0 = {
+					0B66BF2B2032CAEB00EC515C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 0B35453F202D2DC000606EF0;
+						TestTargetID = 0B66BF172032CAEB00EC515C;
 					};
-					0B35455E202D2DC100606EF0 = {
+					0B66BF362032CAEB00EC515C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 0B35453F202D2DC000606EF0;
+						TestTargetID = 0B66BF172032CAEB00EC515C;
 					};
 				};
 			};
-			buildConfigurationList = 0B35453B202D2DC000606EF0 /* Build configuration list for PBXProject "IWU-Hours" */;
+			buildConfigurationList = 0B66BF132032CAEB00EC515C /* Build configuration list for PBXProject "IWU-Hours" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -215,37 +218,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 0B354537202D2DC000606EF0;
-			productRefGroup = 0B354541202D2DC000606EF0 /* Products */;
+			mainGroup = 0B66BF0F2032CAEB00EC515C;
+			productRefGroup = 0B66BF192032CAEB00EC515C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0B35453F202D2DC000606EF0 /* IWU-Hours */,
-				0B354553202D2DC000606EF0 /* IWU-HoursTests */,
-				0B35455E202D2DC100606EF0 /* IWU-HoursUITests */,
+				0B66BF172032CAEB00EC515C /* IWU-Hours */,
+				0B66BF2B2032CAEB00EC515C /* IWU-HoursTests */,
+				0B66BF362032CAEB00EC515C /* IWU-HoursUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0B35453E202D2DC000606EF0 /* Resources */ = {
+		0B66BF162032CAEB00EC515C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B35454E202D2DC000606EF0 /* LaunchScreen.storyboard in Resources */,
-				0B35454B202D2DC000606EF0 /* Assets.xcassets in Resources */,
-				0B354549202D2DC000606EF0 /* Main.storyboard in Resources */,
+				0B66BF262032CAEB00EC515C /* LaunchScreen.storyboard in Resources */,
+				0B66BF232032CAEB00EC515C /* Assets.xcassets in Resources */,
+				0B66BF212032CAEB00EC515C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B354552202D2DC000606EF0 /* Resources */ = {
+		0B66BF2A2032CAEB00EC515C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B35455D202D2DC100606EF0 /* Resources */ = {
+		0B66BF352032CAEB00EC515C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,59 +258,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0B35453C202D2DC000606EF0 /* Sources */ = {
+		0B66BF142032CAEB00EC515C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B354546202D2DC000606EF0 /* ViewController.swift in Sources */,
-				0B354544202D2DC000606EF0 /* AppDelegate.swift in Sources */,
+				0B66BF4A2032CD1100EC515C /* CustomTableViewCell.swift in Sources */,
+				0B66BF1E2032CAEB00EC515C /* ViewController.swift in Sources */,
+				0B66BF1C2032CAEB00EC515C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B354550202D2DC000606EF0 /* Sources */ = {
+		0B66BF282032CAEB00EC515C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B354559202D2DC100606EF0 /* IWU_HoursTests.swift in Sources */,
+				0B66BF312032CAEB00EC515C /* IWU_HoursTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B35455B202D2DC100606EF0 /* Sources */ = {
+		0B66BF332032CAEB00EC515C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B354564202D2DC100606EF0 /* IWU_HoursUITests.swift in Sources */,
+				0B66BF3C2032CAEB00EC515C /* IWU_HoursUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0B354556202D2DC000606EF0 /* PBXTargetDependency */ = {
+		0B66BF2E2032CAEB00EC515C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0B35453F202D2DC000606EF0 /* IWU-Hours */;
-			targetProxy = 0B354555202D2DC000606EF0 /* PBXContainerItemProxy */;
+			target = 0B66BF172032CAEB00EC515C /* IWU-Hours */;
+			targetProxy = 0B66BF2D2032CAEB00EC515C /* PBXContainerItemProxy */;
 		};
-		0B354561202D2DC100606EF0 /* PBXTargetDependency */ = {
+		0B66BF392032CAEB00EC515C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0B35453F202D2DC000606EF0 /* IWU-Hours */;
-			targetProxy = 0B354560202D2DC100606EF0 /* PBXContainerItemProxy */;
+			target = 0B66BF172032CAEB00EC515C /* IWU-Hours */;
+			targetProxy = 0B66BF382032CAEB00EC515C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0B354547202D2DC000606EF0 /* Main.storyboard */ = {
+		0B66BF1F2032CAEB00EC515C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0B354548202D2DC000606EF0 /* Base */,
+				0B66BF202032CAEB00EC515C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0B35454C202D2DC000606EF0 /* LaunchScreen.storyboard */ = {
+		0B66BF242032CAEB00EC515C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0B35454D202D2DC000606EF0 /* Base */,
+				0B66BF252032CAEB00EC515C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -315,7 +319,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0B354566202D2DC100606EF0 /* Debug */ = {
+		0B66BF3E2032CAEB00EC515C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -372,7 +376,7 @@
 			};
 			name = Debug;
 		};
-		0B354567202D2DC100606EF0 /* Release */ = {
+		0B66BF3F2032CAEB00EC515C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -422,7 +426,7 @@
 			};
 			name = Release;
 		};
-		0B354569202D2DC100606EF0 /* Debug */ = {
+		0B66BF412032CAEB00EC515C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -430,14 +434,14 @@
 				DEVELOPMENT_TEAM = 9E59388V35;
 				INFOPLIST_FILE = "IWU-Hours/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "C--.IWU-Hours";
+				PRODUCT_BUNDLE_IDENTIFIER = "IWU.IWU-Hours";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0B35456A202D2DC100606EF0 /* Release */ = {
+		0B66BF422032CAEB00EC515C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -445,14 +449,14 @@
 				DEVELOPMENT_TEAM = 9E59388V35;
 				INFOPLIST_FILE = "IWU-Hours/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "C--.IWU-Hours";
+				PRODUCT_BUNDLE_IDENTIFIER = "IWU.IWU-Hours";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		0B35456C202D2DC100606EF0 /* Debug */ = {
+		0B66BF442032CAEB00EC515C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -461,7 +465,7 @@
 				DEVELOPMENT_TEAM = 9E59388V35;
 				INFOPLIST_FILE = "IWU-HoursTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "C--.IWU-HoursTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "IWU.IWU-HoursTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -469,7 +473,7 @@
 			};
 			name = Debug;
 		};
-		0B35456D202D2DC100606EF0 /* Release */ = {
+		0B66BF452032CAEB00EC515C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -478,7 +482,7 @@
 				DEVELOPMENT_TEAM = 9E59388V35;
 				INFOPLIST_FILE = "IWU-HoursTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "C--.IWU-HoursTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "IWU.IWU-HoursTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -486,7 +490,7 @@
 			};
 			name = Release;
 		};
-		0B35456F202D2DC100606EF0 /* Debug */ = {
+		0B66BF472032CAEB00EC515C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -494,7 +498,7 @@
 				DEVELOPMENT_TEAM = 9E59388V35;
 				INFOPLIST_FILE = "IWU-HoursUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "C--.IWU-HoursUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "IWU.IWU-HoursUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,7 +506,7 @@
 			};
 			name = Debug;
 		};
-		0B354570202D2DC100606EF0 /* Release */ = {
+		0B66BF482032CAEB00EC515C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -510,7 +514,7 @@
 				DEVELOPMENT_TEAM = 9E59388V35;
 				INFOPLIST_FILE = "IWU-HoursUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "C--.IWU-HoursUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "IWU.IWU-HoursUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -521,43 +525,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B35453B202D2DC000606EF0 /* Build configuration list for PBXProject "IWU-Hours" */ = {
+		0B66BF132032CAEB00EC515C /* Build configuration list for PBXProject "IWU-Hours" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B354566202D2DC100606EF0 /* Debug */,
-				0B354567202D2DC100606EF0 /* Release */,
+				0B66BF3E2032CAEB00EC515C /* Debug */,
+				0B66BF3F2032CAEB00EC515C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B354568202D2DC100606EF0 /* Build configuration list for PBXNativeTarget "IWU-Hours" */ = {
+		0B66BF402032CAEB00EC515C /* Build configuration list for PBXNativeTarget "IWU-Hours" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B354569202D2DC100606EF0 /* Debug */,
-				0B35456A202D2DC100606EF0 /* Release */,
+				0B66BF412032CAEB00EC515C /* Debug */,
+				0B66BF422032CAEB00EC515C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B35456B202D2DC100606EF0 /* Build configuration list for PBXNativeTarget "IWU-HoursTests" */ = {
+		0B66BF432032CAEB00EC515C /* Build configuration list for PBXNativeTarget "IWU-HoursTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B35456C202D2DC100606EF0 /* Debug */,
-				0B35456D202D2DC100606EF0 /* Release */,
+				0B66BF442032CAEB00EC515C /* Debug */,
+				0B66BF452032CAEB00EC515C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B35456E202D2DC100606EF0 /* Build configuration list for PBXNativeTarget "IWU-HoursUITests" */ = {
+		0B66BF462032CAEB00EC515C /* Build configuration list for PBXNativeTarget "IWU-HoursUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B35456F202D2DC100606EF0 /* Debug */,
-				0B354570202D2DC100606EF0 /* Release */,
+				0B66BF472032CAEB00EC515C /* Debug */,
+				0B66BF482032CAEB00EC515C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0B354538202D2DC000606EF0 /* Project object */;
+	rootObject = 0B66BF102032CAEB00EC515C /* Project object */;
 }

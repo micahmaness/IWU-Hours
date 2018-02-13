@@ -1,47 +1,44 @@
-// Micah Maness, Matt Babb, Sam Deifenbacher
-// ViewController.swift
-// IWU-Hours
-// We wrote all this code ourselves, we did not copy code.
+//
+//  ViewController.swift
+//  IWU-Hours
+//
+//  Created by Micah Maness on 2/13/18.
+//  Copyright © 2018 Micah Maness. All rights reserved.
+//
 
 import UIKit
 
-// Implement Table View to Main Story
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var tableItems = ["Student Center","Baldwin","Wildcat"]
+    let elements = ["Student Center", "Baldwin", "Wildcat", "McConn", "Post Office"]
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         super.viewDidLoad()
-        
-        for i in 0...15 {
-            data.append("\(i)")
-        }
-        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
 
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return elements.count
     }
     
-    private var data: [String] = []
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
- 
-// Number of Sections
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func tableView( tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        let text = data[indexPath.row]
+        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         
-        cell.textLabel?.text = text
+        cell.locationLabel.text = elements[indexPath.row]
+        
+        cell.locationLabel.layer.cornerRadius = cell.locationLabel.frame.height / 2
         
         return cell
     }
