@@ -35,6 +35,7 @@ public var sectionsData: [Section] = [
     ]),
     
     Section(name: "Baldwin", items: [
+        Item(name: "ADD MENU", detail:""),
     ]),
     
     Section(name: "Wildcat", items: [
