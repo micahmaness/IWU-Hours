@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Foundation
 
 //
 // MARK: - View Controller
@@ -13,9 +14,10 @@ class CollapsibleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         // Auto resizing the height of the cell
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 54.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         self.title = "IWU Hours"
@@ -37,7 +39,7 @@ extension CollapsibleTableViewController {
     }
     
     // Cell
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath ) -> UITableViewCell {
         let cell: CollapsibleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CollapsibleTableViewCell ??
             CollapsibleTableViewCell(style: .default, reuseIdentifier: "cell")
         
@@ -68,7 +70,7 @@ extension CollapsibleTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44.0
+        return 54.0
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -91,5 +93,16 @@ extension CollapsibleTableViewController: CollapsibleTableViewHeaderDelegate {
         
         tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
     }
+    
+    ///////////////////////// Reorder Cells
+
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = sectionsData[sourceIndexPath.row]
+        sectionsData.remove(at: sourceIndexPath.row)
+        sectionsData.insert(movedObject, at: destinationIndexPath.row)
+        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(sectionsData)")
+        // To check for correctness enable: self.tableView.reloadData()
+    }
+    
     
 }
