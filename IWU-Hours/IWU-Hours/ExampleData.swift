@@ -35,22 +35,27 @@ public var sectionsData: [Section] = [
     ]),
     
     Section(name: "Baldwin", items: [
-        Item(name: "ADD MENU", detail:""),
+        Item(name: "ADD HOURS", detail:"ADD MENU?"),
     ]),
     
     Section(name: "Wildcat", items: [
+        Item(name: "ADD HOURS", detail: ""),
     ]),
     
     Section(name: "McConn", items: [
+        Item(name: "ADD HOURS", detail: ""),
         ]),
     
     Section(name: "Post Office", items: [
+        Item(name: "ADD HOURS", detail: ""),
         ]),
     
     Section(name: "Bookstore", items: [
+        Item(name: "ADD HOURS", detail: ""),
         ]),
     
     Section(name: "Library", items: [
+        Item(name: "ADD HOURS", detail: ""),
         ]),
     
     Section(name: "Recreation and Wellness Center", items: [
