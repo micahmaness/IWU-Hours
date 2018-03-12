@@ -29,7 +29,7 @@ public struct Section {
 public var sectionsData: [Section] = [
     Section(name: "IWU Hours", items: [
         Item(name: "Baldwin", detail: "BREAKFAST\nMonday - Friday: 7:00 a.m - 10:00 a.m * No Breakfast on Weekends\n\nLUNCH\nMonday - Friday: 11:00 a.m. - 2:00 p.m.\nSaturday: 11:30 a.m - 12:30 p.m.\nSunday: 11:30 a.m - 1:15 p.m.\n\nDINNER\nMonday-Thursday 5:00 p.m. - 6:30 p.m.\nFriday-Sunday: 5:00 p.m. - 6:00 p.m."),
-        Item(name: "Wildcat Express", detail: "Monday - Friday: 8:30 a.m. - 9:00 p.m. \nSaturday: 12:30 p.m - 5:00 p.m."),
+        Item(name: "Wildcat Express", detail: "Monday - Friday: 8:30 a.m. - 9:00 p.m. \nSaturday: 12:30 p.m - 5:00 p.m.\n\nChick-fil-a Meal Swipes\nMonday - Friday 2:00 p.m. - 9:00 p.m.\nSaturday All Day"),
         Item(name: "Trader James", detail: "Monday - Friday: 10:00 a.m. - Midnight\nSaturday: 2:00 p.m - Midnight"),
         Item(name: "Marios Pizza / Wilbur's Wild Wings", detail: "Monday - Friday: 10:00 a.m. - Midnight\nSaturday-Sunday: 6:00 p.m - 12:00 a.m. Midnight "),
         Item(name: "McConn", detail: "Monday - Friday: 7:00 a.m. - 11:30 p.m\nSaturday: 9:00 a.m - 11:30 p.m\nSunday: 7:00 PM - 11:30 p.m\n*MWF closed from 9:30 - 11:00 for chapel services."),
