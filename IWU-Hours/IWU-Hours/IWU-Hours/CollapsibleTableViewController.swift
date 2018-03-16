@@ -65,7 +65,7 @@ extension CollapsibleTableViewController {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
         
         header.titleLabel.text = sections[section].name
-        header.arrowLabel.text = ""
+        header.arrowLabel.text = ">"
         header.setCollapsed(sections[section].collapsed)
         
         header.section = section
@@ -96,17 +96,30 @@ extension CollapsibleTableViewController: CollapsibleTableViewHeaderDelegate {
         sections[section].collapsed = collapsed
         header.setCollapsed(collapsed)
         
-//        tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
+        tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
     }
     
-    ///////////////////////// Reorder Cells
+    //
+    //Reorder Cells
+    //
 
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = sections[sourceIndexPath.section]
         sections.remove(at: sourceIndexPath.section)
         sections.self.insert(movedObject, at: destinationIndexPath.section)
         NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.section) \(sections)")
-        // To check for correctness enable: self.tableView.reloadData()
+        self.tableView.reloadData() //Checks correctness of items in sections
+    }
+    
+    //
+    // Disable the delete buttons
+    //
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
     
