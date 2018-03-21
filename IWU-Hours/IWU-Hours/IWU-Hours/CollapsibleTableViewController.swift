@@ -20,6 +20,7 @@ class CollapsibleTableViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        
         // Auto resizing the height of the cell
         tableView.estimatedRowHeight = 54.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -66,6 +67,9 @@ extension CollapsibleTableViewController {
         
         header.titleLabel.text = sections[section].name
         header.arrowLabel.text = ">"
+        header.titleLabel.font = UIFont.systemFont(ofSize: 28)
+        header.arrowLabel.font = UIFont.systemFont(ofSize: 24)
+        
         header.setCollapsed(sections[section].collapsed)
         
         header.section = section
@@ -102,7 +106,6 @@ extension CollapsibleTableViewController: CollapsibleTableViewHeaderDelegate {
     //
     //Reorder Cells
     //
-
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = sections[sourceIndexPath.section]
         sections.remove(at: sourceIndexPath.section)
