@@ -65,6 +65,7 @@ extension CollapsibleTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
         
+        if sections[section].name == "Wildcat Express" {header.contentView.backgroundColor = UIColor (hex: 0xFFFFFF)}
         header.titleLabel.text = sections[section].name
         header.arrowLabel.text = ">"
         header.titleLabel.font = UIFont.systemFont(ofSize: 28)
