@@ -1,19 +1,28 @@
 //
-//  IWU_HoursTests.swift
+//  UpdateColor.swift
 //  IWU-HoursTests
 //
-//  Created by Micah Maness on 2/13/18.
-//  Copyright © 2018 Micah Maness. All rights reserved.
+//  Created by Sam Diefenbacher on 3/23/18.
+//  Copyright © 2018 IWU. All rights reserved.
 //
 
-import XCTest
-@testable import IWU_Hours
 
-class IWU_HoursTests: XCTestCase {
+
+
+
+import XCTest
+@testable import IWU-Hours
+
+
+class UpdateColor: XCTestCase {
+    
+    var test: CollapsibleTableViewController!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        
     }
     
     override func tearDown() {
@@ -26,11 +35,6 @@ class IWU_HoursTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
     
 }

@@ -1,15 +1,14 @@
 //
-//  IWU_HoursTests.swift
+//  ColorTest.swift
 //  IWU-HoursTests
 //
-//  Created by Micah Maness on 2/13/18.
-//  Copyright © 2018 Micah Maness. All rights reserved.
+//  Created by Sam Diefenbacher on 3/23/18.
+//  Copyright © 2018 IWU. All rights reserved.
 //
 
 import XCTest
-@testable import IWU_Hours
 
-class IWU_HoursTests: XCTestCase {
+class ColorTest: XCTestCase {
     
     override func setUp() {
         super.setUp()

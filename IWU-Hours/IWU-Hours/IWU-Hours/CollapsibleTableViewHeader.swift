@@ -22,18 +22,20 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     let cellColorGreen = UIColor(hex: 0x2DB738)
     let cellColorYellow = UIColor(hex: 0xF7DA35)
     let cellColorBlack = UIColor(hex: 0x000000)
+    let cellColorWhite = UIColor(hex: 0xFFFFFF)
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
         // Content View
-        contentView.backgroundColor = cellColorRed
+        
+        contentView.backgroundColor = cellColorGreen
         
         let marginGuide = contentView.layoutMarginsGuide
         
         // Arrow label
         contentView.addSubview(arrowLabel)
-        arrowLabel.textColor = cellColorBlack
+        arrowLabel.textColor = cellColorWhite
         arrowLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowLabel.widthAnchor.constraint(equalToConstant: 12).isActive = true
         arrowLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true

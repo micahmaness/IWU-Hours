@@ -7,12 +7,13 @@
 import UIKit
 import Foundation
 
+
 //
 // MARK: - View Controller
 //
 class CollapsibleTableViewController: UITableViewController {
     
-
+    
     var sections = sectionsData
     
     
@@ -35,7 +36,7 @@ class CollapsibleTableViewController: UITableViewController {
 // MARK: - View Controller DataSource and Delegate
 //
 extension CollapsibleTableViewController {
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -65,7 +66,129 @@ extension CollapsibleTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
         
-        if sections[section].name == "Wildcat Express" {header.contentView.backgroundColor = UIColor (hex: 0xFFFFFF)}
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        
+        let colorRed = UIColor(hex: 0xFF736D)
+        let colorYellow = UIColor(hex: 0xfbffa0)
+        let colorGreen = UIColor(hex: 0xA8FFA9)
+        
+        let hour = NSCalendar.current.component(.hour, from: NSDate() as Date)
+        
+        if sections[section].name == "Baldwin Dining Room" {
+
+            switch hour
+            {
+            case 7...9, 11...13, 17: header.contentView.backgroundColor = colorGreen
+                break
+            case 0...6, 10, 14...16, 18...24: header.contentView.backgroundColor = colorRed
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+            assert(header.contentView.backgroundColor == colorGreen)
+            
+        }
+        
+        if sections[section].name == "Wildcat Express" {
+            let hour = 0
+            switch hour
+            {
+            case 8...20: header.contentView.backgroundColor = colorGreen
+                break
+            case 0...7, 21...24: header.contentView.backgroundColor = colorRed
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+            assert(header.contentView.backgroundColor == colorRed)
+        }
+        
+        if sections[section].name == "Trader James" {
+            switch hour
+            {
+            case 16...22: header.contentView.backgroundColor = colorGreen
+
+                break
+            case 0...9,24: header.contentView.backgroundColor = colorRed
+                break
+            case 10...15: header.contentView.backgroundColor = colorYellow
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+            assert(header.contentView.backgroundColor == colorYellow)
+        }
+        
+        if sections[section].name == "Mario's Pizza" {
+            switch hour
+            {
+            case 10...22: header.contentView.backgroundColor = colorGreen
+                break
+            case 0...9,24: header.contentView.backgroundColor = colorRed
+                break
+            case 23: header.contentView.backgroundColor = colorYellow
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+        }
+        
+        if sections[section].name == "McConn Coffee Co." {
+            switch hour
+            {
+            case 7...22: header.contentView.backgroundColor = colorGreen
+                break
+            case 0...6,24: header.contentView.backgroundColor = colorRed
+                break
+            case 23: header.contentView.backgroundColor = colorYellow
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+        }
+        
+        if sections[section].name == "Jackson Library" {
+            switch hour
+            {
+            case 7...16: header.contentView.backgroundColor = colorGreen
+                break
+            case 0...6,18...24: header.contentView.backgroundColor = colorRed
+                break
+            case 17: header.contentView.backgroundColor = colorYellow
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+        }
+        
+        if sections[section].name == "Rec Center" {
+            switch hour
+            {
+            case 6...18: header.contentView.backgroundColor = colorGreen
+                break
+            case 0...6, 20...24: header.contentView.backgroundColor = colorRed
+                break
+            case 19: header.contentView.backgroundColor = colorYellow
+                break
+            default:header.contentView.backgroundColor = colorRed
+            }
+        }
+        
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+        
+        // Header Label
         header.titleLabel.text = sections[section].name
         header.arrowLabel.text = ">"
         header.titleLabel.font = UIFont.systemFont(ofSize: 28)
@@ -86,7 +209,7 @@ extension CollapsibleTableViewController {
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1.0
     }
-
+    
 }
 
 //
@@ -126,5 +249,16 @@ extension CollapsibleTableViewController: CollapsibleTableViewHeaderDelegate {
         return false
     }
     
+    func tableView(_ tableView: UITableView, layout collectionViewLayout: UICollectionViewLayout, backgroundColorForSectionAt section: Int) -> UIColor {
+        if section == 0 {
+            return UIColor.red
+        } else if section == 1 {
+            return UIColor.green
+        } else if section == 2 {
+            return UIColor.brown
+        }
+        return UIColor.blue
+    }
     
 }
+

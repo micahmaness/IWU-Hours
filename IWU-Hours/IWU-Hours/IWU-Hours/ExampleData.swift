@@ -29,7 +29,7 @@ public struct Section {
 }
 
 public var sectionsData: [Section] = [
-    Section(name: "Baldwin Dining Room", items: [
+    Section (name: "Baldwin Dining Room", items: [
         Item(name: "Baldwin Dining Room", detail: "BREAKFAST\nMonday - Friday: 7:00 a.m - 10:00 a.m * No Breakfast on Weekends\n\nLUNCH\nMonday - Friday: 11:00 a.m. - 2:00 p.m.\nSaturday: 11:30 a.m - 12:30 p.m.\nSunday: 11:30 a.m - 1:15 p.m.\n\nDINNER\nMonday-Thursday 5:00 p.m. - 6:30 p.m.\nFriday-Sunday: 5:00 p.m. - 6:00 p.m.")
         ]),
     Section (name: "Wildcat Express", items: [
@@ -41,22 +41,19 @@ public var sectionsData: [Section] = [
     Section (name: "Mario's Pizza", items:[
         Item(name: "Mario's Pizza & Wilbur's Wild Wings", detail: "Monday - Friday: 10:00 a.m. - Midnight\nSaturday-Sunday: 6:00 p.m - 12:00 a.m. Midnight ")
         ]),
-    Section(name: "McConn Coffee Co.", items:[
+    Section (name: "McConn Coffee Co.", items:[
         Item(name: "McConn Coffee Co.", detail: "Monday - Friday: 7:00 a.m. - 11:30 p.m\nSaturday: 9:00 a.m - 11:30 p.m\nSunday: 7:00 PM - 11:30 p.m\n*MWF closed from 9:30 - 11:00 for chapel services.")
         ]),
-    Section(name: "Jackson Library", items:[
+    Section (name: "Jackson Library", items:[
         Item(name: "Jackson Library", detail: "Monday - Thursday: 7:30 a.m. - Midnight\nFriday: 7:30 a.m. to 6 p.m.\nSaturday: 11 a.m. - 8 p.m.")
         ]),
-    Section(name: "Rec Center", items:[
+    Section (name: "Rec Center", items:[
         Item(name: "Recreation and Wellness Center", detail: "Monday - Thursday: 6 a.m. - 11 p.m. \nFriday: 6 a.m. - 7 p.m. \nSaturday: 8 a.m. - 7 p.m. \nSunday: 2 p.m. - 5 p.m., 8 p.m. - 10 p.m.\n*Free Weight Room closes M-F from 8 a.m. - 12:00 p.m."),
         Item(name: "Rock Wall", detail: "Monday - Thursday: 6 p.m. - 10 p.m.\nFriday: 4 p.m. - 7 p.m.\nSaturday: 1 p.m. - 5 p.m.\nSunday: CLOSED")
         //Dorms/Girl Hours
         //Baldwin Menu??
         //Chapel/Chapel Schedule
-    ])
-
+        ])
+    
 ]
-
-
-
 
