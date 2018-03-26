@@ -2,18 +2,21 @@
 //  IWU_HoursTests.swift
 //  IWU-HoursTests
 //
-//  Created by Micah Maness on 2/13/18.
-//  Copyright © 2018 Micah Maness. All rights reserved.
+//  Created by Sam Diefenbacher on 3/23/18.
+//  Copyright © 2018 IWU. All rights reserved.
 //
 
 import XCTest
-@testable import IWU_Hours
 
 class IWU_HoursTests: XCTestCase {
+    var app: XCUIApplication!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("--uitesting")
     }
     
     override func tearDown() {
@@ -22,6 +25,7 @@ class IWU_HoursTests: XCTestCase {
     }
     
     func testExample() {
+        app.launch()
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

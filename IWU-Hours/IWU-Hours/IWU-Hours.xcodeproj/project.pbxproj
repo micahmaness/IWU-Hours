@@ -15,7 +15,18 @@
 		0A908DF91CFCAA9200470F33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A908DF71CFCAA9200470F33 /* LaunchScreen.storyboard */; };
 		0A908E011CFCAC7500470F33 /* CollapsibleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A908E001CFCAC7500470F33 /* CollapsibleTableViewController.swift */; };
 		0A908E031CFCB8D600470F33 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A908E021CFCB8D600470F33 /* CollapsibleTableViewHeader.swift */; };
+		6A300250206544E8003ABBFF /* UpdateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A30024F206544E8003ABBFF /* UpdateColor.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A4B881F20653DD500967B22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A908DE31CFCAA9200470F33 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A908DEA1CFCAA9200470F33;
+			remoteInfo = "IWU-Hours";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A12C8C11D9C3AAF00D0BEE3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -28,10 +39,20 @@
 		0A908DFA1CFCAA9200470F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A908E001CFCAC7500470F33 /* CollapsibleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewController.swift; sourceTree = "<group>"; };
 		0A908E021CFCB8D600470F33 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		6A30024F206544E8003ABBFF /* UpdateColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateColor.swift; sourceTree = "<group>"; };
+		6A4B881A20653DD400967B22 /* IWU-HoursTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IWU-HoursTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A4B881E20653DD500967B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0A908DE81CFCAA9200470F33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A4B881720653DD400967B22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				0A908DED1CFCAA9200470F33 /* IWU-Hours */,
+				6A4B881B20653DD500967B22 /* IWU-HoursTests */,
 				0A908DEC1CFCAA9200470F33 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				0A908DEB1CFCAA9200470F33 /* IWU-Hours.app */,
+				6A4B881A20653DD400967B22 /* IWU-HoursTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +94,15 @@
 				0A6AFF921F31311800FA070E /* ExampleData.swift */,
 			);
 			path = "IWU-Hours";
+			sourceTree = "<group>";
+		};
+		6A4B881B20653DD500967B22 /* IWU-HoursTests */ = {
+			isa = PBXGroup;
+			children = (
+				6A30024F206544E8003ABBFF /* UpdateColor.swift */,
+				6A4B881E20653DD500967B22 /* Info.plist */,
+			);
+			path = "IWU-HoursTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,13 +125,31 @@
 			productReference = 0A908DEB1CFCAA9200470F33 /* IWU-Hours.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6A4B881920653DD400967B22 /* IWU-HoursTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A4B882320653DD500967B22 /* Build configuration list for PBXNativeTarget "IWU-HoursTests" */;
+			buildPhases = (
+				6A4B881620653DD400967B22 /* Sources */,
+				6A4B881720653DD400967B22 /* Frameworks */,
+				6A4B881820653DD400967B22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A4B882020653DD500967B22 /* PBXTargetDependency */,
+			);
+			name = "IWU-HoursTests";
+			productName = "IWU-HoursTests";
+			productReference = 6A4B881A20653DD400967B22 /* IWU-HoursTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0A908DE31CFCAA9200470F33 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = IWU;
 				TargetAttributes = {
@@ -107,6 +157,12 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = QDUEYZ3L26;
 						LastSwiftMigration = 0800;
+					};
+					6A4B881920653DD400967B22 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = QDUEYZ3L26;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0A908DEA1CFCAA9200470F33;
 					};
 				};
 			};
@@ -124,6 +180,7 @@
 			projectRoot = "";
 			targets = (
 				0A908DEA1CFCAA9200470F33 /* IWU-Hours */,
+				6A4B881920653DD400967B22 /* IWU-HoursTests */,
 			);
 		};
 /* End PBXProject section */
@@ -135,6 +192,13 @@
 			files = (
 				0A908DF91CFCAA9200470F33 /* LaunchScreen.storyboard in Resources */,
 				0A908DF61CFCAA9200470F33 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A4B881820653DD400967B22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +218,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A4B881620653DD400967B22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A300250206544E8003ABBFF /* UpdateColor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A4B882020653DD500967B22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A908DEA1CFCAA9200470F33 /* IWU-Hours */;
+			targetProxy = 6A4B881F20653DD500967B22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A908DF71CFCAA9200470F33 /* LaunchScreen.storyboard */ = {
@@ -288,6 +368,65 @@
 			};
 			name = Release;
 		};
+		6A4B882120653DD500967B22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDUEYZ3L26;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "IWU-HoursTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cis.IWU-HoursTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IWU-Hours.app/IWU-Hours";
+			};
+			name = Debug;
+		};
+		6A4B882220653DD500967B22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDUEYZ3L26;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "IWU-HoursTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cis.IWU-HoursTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IWU-Hours.app/IWU-Hours";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -305,6 +444,15 @@
 			buildConfigurations = (
 				0A908DFE1CFCAA9200470F33 /* Debug */,
 				0A908DFF1CFCAA9200470F33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A4B882320653DD500967B22 /* Build configuration list for PBXNativeTarget "IWU-HoursTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A4B882120653DD500967B22 /* Debug */,
+				6A4B882220653DD500967B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
