@@ -93,12 +93,10 @@ extension CollapsibleTableViewController {
                 break
             default:header.contentView.backgroundColor = colorRed
             }
-            assert(header.contentView.backgroundColor == colorGreen)
             
         }
         
         if sections[section].name == "Wildcat Express" {
-            let hour = 0
             switch hour
             {
             case 8...20: header.contentView.backgroundColor = colorGreen
@@ -107,22 +105,20 @@ extension CollapsibleTableViewController {
                 break
             default:header.contentView.backgroundColor = colorRed
             }
-            assert(header.contentView.backgroundColor == colorRed)
         }
         
         if sections[section].name == "Trader James" {
             switch hour
             {
-            case 16...22: header.contentView.backgroundColor = colorGreen
+            case 10...22: header.contentView.backgroundColor = colorGreen
 
                 break
             case 0...9,24: header.contentView.backgroundColor = colorRed
                 break
-            case 10...15: header.contentView.backgroundColor = colorYellow
+            case 23: header.contentView.backgroundColor = colorYellow
                 break
             default:header.contentView.backgroundColor = colorRed
             }
-            assert(header.contentView.backgroundColor == colorYellow)
         }
         
         if sections[section].name == "Mario's Pizza" {

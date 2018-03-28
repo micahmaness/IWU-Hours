@@ -35,7 +35,7 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
         
         // Arrow label
         contentView.addSubview(arrowLabel)
-        arrowLabel.textColor = cellColorWhite
+        arrowLabel.textColor = cellColorBlack
         arrowLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowLabel.widthAnchor.constraint(equalToConstant: 12).isActive = true
         arrowLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
