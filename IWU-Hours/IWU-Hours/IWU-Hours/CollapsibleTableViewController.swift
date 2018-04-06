@@ -11,27 +11,40 @@ import Foundation
 //
 // MARK: - View Controller
 //
+
 class CollapsibleTableViewController: UITableViewController {
-    
-    
+    /*
+    lazy var refresher: UIRefreshControl = {
+       let refreshControl = UIRefreshControl()
+       refreshControl.tintColor = .black
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        return refreshControl
+    }()
+    */
     var sections = sectionsData
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        //ableView.refreshControl = refresher
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        
         // Auto resizing the height of the cell
         tableView.estimatedRowHeight = 54.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
         self.title = "IWU Hours"
-        
-    }
-    
-}
 
+    }
+    /*
+    @objc
+    func requestData()
+    {
+        print("refreshed")
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline){
+        self.refresher.endRefreshing()
+        }
+    }
+    */
+}
 //
 // MARK: - View Controller DataSource and Delegate
 //
@@ -62,10 +75,13 @@ extension CollapsibleTableViewController {
         return UITableViewAutomaticDimension
     }
     
+
     // Header
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
         
+
+
         // --------------------------------------------------------------
         // --------------------------------------------------------------
         // --------------------------------------------------------------
@@ -76,107 +92,158 @@ extension CollapsibleTableViewController {
         // --------------------------------------------------------------
         // --------------------------------------------------------------
         // --------------------------------------------------------------
+        let hour = NSCalendar.current.component(.hour,from: NSDate() as Date)
+        let minute = 60 - NSCalendar.current.component(.minute,from: NSDate() as Date)
+        let BaldwinOpenBreakfast = [7,8,9]
+        let BaldwinOpenLunch = [11,12,13]
+        let BaldwinOpenDinner = [17]
+        let WildcatOpen = [8,9,10,11,12,13,14,15,16,17,18,19,20]
+        let TraderjamesOpen = [10,11,12,13,14,15,16,17,18,19,20,21,22]
+        let MariosOpen = [10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+        let McconnOpen = [7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
+        let JacksonOpen = [7,8,9,10,11,12,13,14,15,16,17]
+        let RecOpen = [7,8,9,10,11,12,13,14,15,16,17,18]
+
         
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .none
+        dateformatter.timeStyle = .short
+        //let now = dateformatter.string(from: Date()) //Current time
+        //let futureDate = Date(timeIntervalSinceNow: 29) //programed time
+        //let timeformatClose = "\(sections[section].name) Opens In \(24 - hour)"
+        //let timeformatOpen = "\(sections[section].name) Closes In \(24 - hour)"
+
         let colorRed = UIColor(hex: 0xFF736D)
-        let colorYellow = UIColor(hex: 0xfbffa0)
+        //let colorYellow = UIColor(hex: 0xfbffa0)
         let colorGreen = UIColor(hex: 0xA8FFA9)
         
-        let hour = NSCalendar.current.component(.hour, from: NSDate() as Date)
-        
         if sections[section].name == "Baldwin Dining Room" {
-
-            switch hour
+            if BaldwinOpenBreakfast.contains(hour)
             {
-            case 7...9, 11...13, 17: header.contentView.backgroundColor = colorGreen
-                break
-            case 0...6, 10, 14...16, 18...24: header.contentView.backgroundColor = colorRed
-                break
-            default:header.contentView.backgroundColor = colorRed
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
             }
-            assert(header.contentView.backgroundColor == colorGreen)
+            else if BaldwinOpenLunch.contains(hour)
+            {
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+            }
+            else if BaldwinOpenDinner.contains(hour)
+            {
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+            }
+            else if !BaldwinOpenDinner.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenBreakfast[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+            }
+        }
+        if sections[section].name == "Wildcat Express" {
+            
+            if WildcatOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+                assert(WildcatOpen.contains(hour) == true)
+            }
+            if !WildcatOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+                assert(!WildcatOpen.contains(hour) == true)
+            }
             
         }
-        
-        if sections[section].name == "Wildcat Express" {
-            let hour = 0
-            switch hour
-            {
-            case 8...20: header.contentView.backgroundColor = colorGreen
-                break
-            case 0...7, 21...24: header.contentView.backgroundColor = colorRed
-                break
-            default:header.contentView.backgroundColor = colorRed
-            }
-            assert(header.contentView.backgroundColor == colorRed)
-        }
-        
         if sections[section].name == "Trader James" {
-            switch hour
-            {
-            case 16...22: header.contentView.backgroundColor = colorGreen
 
-                break
-            case 0...9,24: header.contentView.backgroundColor = colorRed
-                break
-            case 10...15: header.contentView.backgroundColor = colorYellow
-                break
-            default:header.contentView.backgroundColor = colorRed
+            if  TraderjamesOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(TraderjamesOpen.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+                assert(TraderjamesOpen.contains(hour) == true)
             }
-            assert(header.contentView.backgroundColor == colorYellow)
+            if !TraderjamesOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(TraderjamesOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+                assert(!TraderjamesOpen.contains(hour) == true)
+            }
         }
-        
         if sections[section].name == "Mario's Pizza" {
-            switch hour
+
+            if  MariosOpen.contains(hour)
             {
-            case 10...22: header.contentView.backgroundColor = colorGreen
-                break
-            case 0...9,24: header.contentView.backgroundColor = colorRed
-                break
-            case 23: header.contentView.backgroundColor = colorYellow
-                break
-            default:header.contentView.backgroundColor = colorRed
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(MariosOpen.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+                assert(MariosOpen.contains(hour) == true)
+            }
+            if !MariosOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(MariosOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+                assert(!MariosOpen.contains(hour) == true)
             }
         }
-        
         if sections[section].name == "McConn Coffee Co." {
-            switch hour
+            if  McconnOpen.contains(hour)
             {
-            case 7...22: header.contentView.backgroundColor = colorGreen
-                break
-            case 0...6,24: header.contentView.backgroundColor = colorRed
-                break
-            case 23: header.contentView.backgroundColor = colorYellow
-                break
-            default:header.contentView.backgroundColor = colorRed
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+                assert(McconnOpen.contains(hour) == true)
+            }
+            if !McconnOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+                assert(!McconnOpen.contains(hour) == true)
             }
         }
-        
         if sections[section].name == "Jackson Library" {
-            switch hour
+            if  JacksonOpen.contains(hour)
             {
-            case 7...16: header.contentView.backgroundColor = colorGreen
-                break
-            case 0...6,18...24: header.contentView.backgroundColor = colorRed
-                break
-            case 17: header.contentView.backgroundColor = colorYellow
-                break
-            default:header.contentView.backgroundColor = colorRed
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+                assert(JacksonOpen.contains(hour) == true)
+            }
+            if !JacksonOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+                assert(!JacksonOpen.contains(hour) == true)
             }
         }
-        
         if sections[section].name == "Rec Center" {
-            switch hour
+            if  RecOpen.contains(hour)
             {
-            case 6...18: header.contentView.backgroundColor = colorGreen
-                break
-            case 0...6, 20...24: header.contentView.backgroundColor = colorRed
-                break
-            case 19: header.contentView.backgroundColor = colorYellow
-                break
-            default:header.contentView.backgroundColor = colorRed
+                header.contentView.backgroundColor = colorGreen
+                sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorGreen)
+                assert(RecOpen.contains(hour) == true)
+            }
+            if !RecOpen.contains(hour)
+            {
+                header.contentView.backgroundColor = colorRed
+                sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                assert(header.contentView.backgroundColor == colorRed)
+                assert(!RecOpen.contains(hour) == true)
             }
         }
-        
+
         // --------------------------------------------------------------
         // --------------------------------------------------------------
         // --------------------------------------------------------------
