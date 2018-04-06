@@ -8,4 +8,9 @@ Second Cycle:
 US2:1 User can tell which locations are open based on green visual cues. -Micah
 US2:2 User can tell which locations are closed based on red visual cues. -Micah
 US2:3 User can see location closing soon based on visual warning cue. -Sam
-US2:4 User clicks on a cell denoted by a symbol on the left to view venue specific details. -Matt
+US2:4 User clicks on a cell denoted by a symbol on the right to view venue specific details. -Matt
+
+Third Cycle:
+US3:1 User will be able to see what time a place is close to opening or closing by displayed updating text when the user opens up a location from the drop down arrow - Sam
+US3:2 User will be able to see when a place is about to close/open within minutes not just hours in the drop down tab of a location - Micah
+US3:3 User will be able to save the order of the locations based on their preferences after they've closed the app - Matt
