@@ -30,7 +30,7 @@ public struct Section {
 
 public var sectionsData: [Section] = [
     Section (name: "Baldwin Dining Room", items: [
-        Item(name: "Baldwin Dining Room", detail: "BREAKFAST\nMonday - Friday: 7:00 a.m - 10:00 a.m * No Breakfast on Weekends\n\nLUNCH\nMonday - Friday: 11:00 a.m. - 2:00 p.m.\nSaturday: 11:30 a.m - 12:30 p.m.\nSunday: 11:30 a.m - 1:15 p.m.\n\nDINNER\nMonday-Thursday 5:00 p.m. - 6:30 p.m.\nFriday-Sunday: 5:00 p.m. - 6:00 p.m.")
+        Item(name: "Baldwin Dining Room", detail: "2:45")
         ]),
     Section (name: "Wildcat Express", items: [
         Item(name: "Wildcat Express", detail: "Monday - Friday: 8:30 a.m. - 9:00 p.m. \nSaturday: 12:30 p.m - 5:00 p.m.\n\nChick-fil-a Meal Swipes\nMonday - Friday 2:00 p.m. - 9:00 p.m.\nSaturday All Day")
