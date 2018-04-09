@@ -17,5 +17,5 @@ US3:3 User will be able to save the order of the locations based on their prefer
 
 Fourth Cycle:
 US4:1 User will be able to pull down on the table and the page will refresh the updated opening/closing times.
-US4:2 User will be able to see static open/close times in the cell under the updating times when a location dropdown tab is opened.
-US4:3 User will be able to recieve a notification when a location is about to open
+US4:2 User will be able to see static open/close times as well as the updating times when a location dropdown tab is opened.
+US4:3 User will be able to set notification preferences in order to be notified when a location is about to open.
