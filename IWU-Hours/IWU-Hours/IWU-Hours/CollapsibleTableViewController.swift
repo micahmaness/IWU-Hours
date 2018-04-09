@@ -144,6 +144,7 @@ extension CollapsibleTableViewController {
             }
         }
         if sections[section].name == "Wildcat Express" {
+            if WildcatOpen.contains(hour)
             {
                 header.contentView.backgroundColor = colorGreen
                 sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "")]
