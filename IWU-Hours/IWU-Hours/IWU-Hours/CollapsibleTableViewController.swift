@@ -92,7 +92,7 @@ extension CollapsibleTableViewController {
         // --------------------------------------------------------------
         // --------------------------------------------------------------
         // --------------------------------------------------------------
-        let day = NSCalendar.current.component(.day,from: NSDate() as Date)
+        let day = NSCalendar.current.component(.weekday,from: NSDate() as Date)
         let hour = NSCalendar.current.component(.hour,from: NSDate() as Date)
         let minute = 60 - NSCalendar.current.component(.minute,from: NSDate() as Date)
         let BaldwinOpenBreakfast = [7,8,9]
@@ -104,6 +104,15 @@ extension CollapsibleTableViewController {
         let McconnOpen = [7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
         let JacksonOpen = [7,8,9,10,11,12,13,14,15,16,17]
         let RecOpen = [7,8,9,10,11,12,13,14,15,16,17,18]
+        
+        let BaldwinWeekdayBreakfast = "Breakfast: 7am-10am"
+        let BaldwinWeekdayLunch = "Lunch: 11am-2pm"
+        let BaldwinMon_ThuDinner = "Dinner: 5pm-6:30pm"
+        let BaldwinFridayDinner = "Dinner: 5pm-6pm"
+        let BaldwinSaturdayLunch = "Lunch: 11:30am-12:30pm"
+        let BaldwinSaturdayDinner = "Dinner: 5pm-6pm"
+        let BaldwinSundayLunch = "Lunch: 11:30am-1:15pm"
+        let BaldwinSundayDinner = "Dinner: 5pm-6pm"
 
         
         let dateformatter = DateFormatter()
@@ -122,19 +131,46 @@ extension CollapsibleTableViewController {
             if BaldwinOpenBreakfast.contains(hour)
             {
                 header.contentView.backgroundColor = colorGreen
-                sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "")]
+                if day>=2 && day<=6{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+                }
+                else if day == 1{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
+                }
+                else if day == 7{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
+                }
                 assert(header.contentView.backgroundColor == colorGreen)
             }
             else if BaldwinOpenLunch.contains(hour)
             {
                 header.contentView.backgroundColor = colorGreen
-                sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "")]
+                if day>=2 && day<=6{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch)")]
+                }
+                else if day == 1{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
+                }
+                else if day == 7{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
+                }
                 assert(header.contentView.backgroundColor == colorGreen)
             }
             else if BaldwinOpenDinner.contains(hour)
             {
                 header.contentView.backgroundColor = colorGreen
-                sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "")]
+                if day>=2 && day<=5{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinMon_ThuDinner)")]
+                }
+                else if day == 6{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinFridayDinner)")]
+                }
+                else if day == 1{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayDinner)")]
+                }
+                else if day == 7{
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayDinner)")]
+                }
                 assert(header.contentView.backgroundColor == colorGreen)
             }
             else if !BaldwinOpenDinner.contains(hour)
@@ -143,7 +179,7 @@ extension CollapsibleTableViewController {
                 sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenBreakfast[0] - hour) hours and \(minute) minutes", detail: "")]
                 assert(header.contentView.backgroundColor == colorRed)
             }
-            //Possible bug find!!! All non-open times default to checking for next breakfast, need intermediate closed options!
+            //Bug find!!! All non-open times default to checking for next breakfast, need intermediate closed options!
         }
         if sections[section].name == "Wildcat Express" {
             if WildcatOpen.contains(hour)
@@ -227,7 +263,7 @@ extension CollapsibleTableViewController {
                 assert(!JacksonOpen.contains(hour) == true)
             }
         }
-        if sections[section].name == "Rec Center" {
+        if sections[section].name == "Rec & Wellness Center" {
             if  RecOpen.contains(hour)
             {
                 header.contentView.backgroundColor = colorGreen
@@ -326,6 +362,6 @@ extension CollapsibleTableViewController: CollapsibleTableViewHeaderDelegate {
         }
         return UIColor.blue
     }
-    
+
 }
 
