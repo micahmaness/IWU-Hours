@@ -92,14 +92,15 @@ extension CollapsibleTableViewController {
         // --------------------------------------------------------------
         // --------------------------------------------------------------
         // --------------------------------------------------------------
+        let day = NSCalendar.current.component(.day,from: NSDate() as Date)
         let hour = NSCalendar.current.component(.hour,from: NSDate() as Date)
         let minute = 60 - NSCalendar.current.component(.minute,from: NSDate() as Date)
         let BaldwinOpenBreakfast = [7,8,9]
         let BaldwinOpenLunch = [11,12,13]
         let BaldwinOpenDinner = [17]
         let WildcatOpen = [8,9,10,11,12,13,14,15,16,17,18,19,20]
-        let TraderjamesOpen = [10,11,12,13,14,15,16,17,18,19,20,21,22]
-        let MariosOpen = [10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+        let TraderjamesOpen = [9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+        let MariosOpen = [9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
         let McconnOpen = [7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
         let JacksonOpen = [7,8,9,10,11,12,13,14,15,16,17]
         let RecOpen = [7,8,9,10,11,12,13,14,15,16,17,18]
@@ -142,6 +143,7 @@ extension CollapsibleTableViewController {
                 sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenBreakfast[0] - hour) hours and \(minute) minutes", detail: "")]
                 assert(header.contentView.backgroundColor == colorRed)
             }
+            //Possible bug find!!! All non-open times default to checking for next breakfast, need intermediate closed options!
         }
         if sections[section].name == "Wildcat Express" {
             if WildcatOpen.contains(hour)
