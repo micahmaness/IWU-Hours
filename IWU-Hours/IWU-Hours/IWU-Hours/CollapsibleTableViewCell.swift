@@ -24,7 +24,7 @@ class CollapsibleTableViewCell: UITableViewCell {
         nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         nameLabel.numberOfLines = 0
-        nameLabel.font = UIFont.systemFont(ofSize: 16)
+        nameLabel.font = UIFont.systemFont(ofSize: 18)
         
         // configure detailLabel
         contentView.addSubview(detailLabel)
@@ -35,7 +35,7 @@ class CollapsibleTableViewCell: UITableViewCell {
         detailLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         detailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5).isActive = true
         detailLabel.numberOfLines = 0
-        detailLabel.font = UIFont.systemFont(ofSize: 12)
+        detailLabel.font = UIFont.systemFont(ofSize: 14)
         detailLabel.textColor = UIColor.lightGray
     }
     
