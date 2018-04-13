@@ -271,7 +271,7 @@ extension CollapsibleTableViewController {
         
 /////Wildcat/////
         if sections[section].name == "Wildcat Express" {
-            if day>=2 && day<=6{
+            if day>=2 && day<=5{
                 if WildcatOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -283,6 +283,31 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+8
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!WildcatOpen.contains(hour) == true)
+                }
+                
+            }
+            else if day == 6{
+                if WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(WildcatOpen.contains(hour) == true)
+                }
+                if !WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+12
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatSaturday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!WildcatOpen.contains(hour) == true)
                 }
@@ -300,6 +325,10 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatSunday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+8
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!WildcatOpen.contains(hour) == true)
                 }
@@ -316,6 +345,10 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatSaturday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+17
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatSunday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!WildcatOpen.contains(hour) == true)
                 }
@@ -415,7 +448,7 @@ extension CollapsibleTableViewController {
         
 /////McConn/////
         if sections[section].name == "McConn Coffee Co." {
-            if day == 2 || day == 4 || day == 6{
+            if day == 2 || day == 4{
                 if  McconnOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -427,6 +460,30 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnTuTh)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!McconnOpen.contains(hour) == true)
+                }
+            }
+            else if day == 6{
+                if  McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(McconnOpen.contains(hour) == true)
+                }
+                if !McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+9
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnSaturday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!McconnOpen.contains(hour) == true)
                 }
@@ -443,6 +500,11 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnTuTh)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    }
+
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!McconnOpen.contains(hour) == true)
                 }
@@ -459,6 +521,11 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnSunday)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    }
+
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!McconnOpen.contains(hour) == true)
                 }
@@ -477,6 +544,11 @@ extension CollapsibleTableViewController {
             {
                 header.contentView.backgroundColor = colorRed
                 sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnSaturday)")]
+                if hour < 24 && hour > McconnOpen.last!{
+                    let tempTime = (23-hour)+19
+                    sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnSunday)")]
+                }
+
                 assert(header.contentView.backgroundColor == colorRed)
                 assert(!McconnOpen.contains(hour) == true)
             }
@@ -496,6 +568,10 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!JacksonOpen.contains(hour) == true)
                 }
@@ -505,6 +581,11 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonFriday)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+11
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
+                    }
+
                     assert(header.contentView.backgroundColor == colorGreen)
                     assert(JacksonOpen.contains(hour) == true)
                 }
@@ -521,6 +602,11 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+20
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonSunday)")]
+                    }
+
                     assert(header.contentView.backgroundColor == colorGreen)
                     assert(JacksonOpen.contains(hour) == true)
                 }
@@ -544,6 +630,11 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "\(JacksonSunday)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    }
+
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!JacksonOpen.contains(hour) == true)
                 }
@@ -552,7 +643,7 @@ extension CollapsibleTableViewController {
         
 /////Rec Center/////
         if sections[section].name == "Rec & Wellness Center" {
-            if day>=2 && day<=6{
+            if day>=2 && day<=5{
                 if  RecOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -564,6 +655,30 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+6
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!RecOpen.contains(hour) == true)
+                }
+            }
+            else if day == 6{
+                if  RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(RecOpen.contains(hour) == true)
+                }
+                if !RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+8
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecSaturday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!RecOpen.contains(hour) == true)
                 }
@@ -580,6 +695,10 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecSaturday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+14
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecSunday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!RecOpen.contains(hour) == true)
                 }
@@ -596,6 +715,10 @@ extension CollapsibleTableViewController {
                 {
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecSunday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+6
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    }
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!RecOpen.contains(hour) == true)
                 }
