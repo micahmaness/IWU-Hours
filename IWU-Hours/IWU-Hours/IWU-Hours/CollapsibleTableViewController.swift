@@ -96,7 +96,9 @@ extension CollapsibleTableViewController {
         let hour = NSCalendar.current.component(.hour,from: NSDate() as Date)
         let minute = 60 - NSCalendar.current.component(.minute,from: NSDate() as Date)
         let BaldwinOpenBreakfast = [7,8,9]
+        let BaldwinUpcomingLunch = [10]
         let BaldwinOpenLunch = [11,12,13]
+        let BaldwinUpcomingDinner = [14,15,16]
         let BaldwinOpenDinner = [17]
         let WildcatOpen = [8,9,10,11,12,13,14,15,16,17,18,19,20]
         let TraderjamesOpen = [9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
@@ -151,209 +153,575 @@ extension CollapsibleTableViewController {
         //let colorYellow = UIColor(hex: 0xfbffa0)
         let colorGreen = UIColor(hex: 0xA8FFA9)
         
-        if sections[section].name == "Baldwin Dining Room" {
-            if BaldwinOpenBreakfast.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=6{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+/////Baldwin/////
+     if sections[section].name == "Baldwin Dining Room"{
+            if day>=2 && day<=5{
+                if BaldwinOpenBreakfast.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
                 }
-                else if day == 1{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
+                else if BaldwinUpcomingLunch.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch)")]
                 }
-                else if day == 7{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
-                }
-                assert(header.contentView.backgroundColor == colorGreen)
-            }
-            else if BaldwinOpenLunch.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=6{
+                else if BaldwinOpenLunch.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch)")]
                 }
-                else if day == 1{
+                else if BaldwinUpcomingDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenDinner[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinMon_ThuDinner)")]
+                }
+                else if BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinMon_ThuDinner)")]
+                }
+                else if !BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenBreakfast[0] - (hour+1)) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+                    if hour < 24 && hour > BaldwinOpenDinner.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+                    }
+                }
+            }
+            else if day == 6{
+                if BaldwinOpenBreakfast.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+                }
+                else if BaldwinUpcomingLunch.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch)")]
+                }
+                else if BaldwinOpenLunch.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch)")]
+                }
+                else if BaldwinUpcomingDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenDinner[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinFridayDinner)")]
+                }
+                else if BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinFridayDinner)")]
+                }
+                else if !BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenBreakfast[0] - (hour+1)) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+                    if hour < 24 && hour > BaldwinOpenDinner.last!{
+                        let tempTime = (23-hour)+11
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
+                    }
+                }
+            }
+            else if day == 1{
+                if BaldwinUpcomingLunch.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
+                }
+                else if BaldwinOpenLunch.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
                 }
-                else if day == 7{
+                else if BaldwinUpcomingDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenDinner[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayDinner)")]
+                }
+                else if BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayDinner)")]
+                }
+                else if !BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenLunch[0] - (hour+1)) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
+                    if hour < 24 && hour > BaldwinOpenDinner.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
+                    }
+                }
+            }
+            else if day == 7{
+                if BaldwinUpcomingLunch.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
+                }
+                else if BaldwinOpenLunch.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
                 }
-                assert(header.contentView.backgroundColor == colorGreen)
+                else if BaldwinUpcomingDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenDinner[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayDinner)")]
+                }
+                else if BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayDinner)")]
+                }
+                else if !BaldwinOpenDinner.contains(hour){
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Open in \(BaldwinOpenLunch[0] - (hour+1)) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
+                    if hour < 24 && hour > BaldwinOpenDinner.last!{
+                        let tempTime = (23-hour)+11
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
+                    }
+                }
             }
-            else if BaldwinOpenDinner.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=5{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinMon_ThuDinner)")]
-                }
-                else if day == 6{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinFridayDinner)")]
-                }
-                else if day == 1{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayDinner)")]
-                }
-                else if day == 7{
-                    sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayDinner)")]
-                }
-                assert(header.contentView.backgroundColor == colorGreen)
-            }
-            else if !BaldwinOpenDinner.contains(hour)
-            {
-                header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenBreakfast[0] - hour) hours and \(minute) minutes", detail: "")]
-                assert(header.contentView.backgroundColor == colorRed)
-            }
-            //Bug find!!! All non-open times default to checking for next breakfast, need intermediate closed options!
         }
+        
+/////Wildcat/////
         if sections[section].name == "Wildcat Express" {
-            if WildcatOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=6{
+            if day>=2 && day<=5{
+                if WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(WildcatOpen.contains(hour) == true)
                 }
-                else if day == 1{
+                if !WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+8
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!WildcatOpen.contains(hour) == true)
+                }
+                
+            }
+            else if day == 6{
+                if WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(WildcatOpen.contains(hour) == true)
+                }
+                if !WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+12
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatSaturday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!WildcatOpen.contains(hour) == true)
+                }
+                
+            }
+            else if day == 1{
+                if WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "\(WildcatSunday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(WildcatOpen.contains(hour) == true)
                 }
-                else if day == 7{
+                if !WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatSunday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+8
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatWeekday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!WildcatOpen.contains(hour) == true)
+                }
+            }
+            else if day == 7{
+                if WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(WildcatOpen.last! - hour) hours and \(minute) minutes", detail: "\(WildcatSaturday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(WildcatOpen.contains(hour) == true)
                 }
-                assert(header.contentView.backgroundColor == colorGreen)
-                assert(WildcatOpen.contains(hour) == true)
-            }
-            if !WildcatOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "")]
-                assert(header.contentView.backgroundColor == colorRed)
-                assert(!WildcatOpen.contains(hour) == true)
+                if !WildcatOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(WildcatOpen[0] - hour) hours and \(minute) minutes", detail: "\(WildcatSaturday)")]
+                    if hour < 24 && hour > WildcatOpen.last!{
+                        let tempTime = (23-hour)+17
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(WildcatSunday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!WildcatOpen.contains(hour) == true)
+                }
             }
         }
+        
+/////C-Store/////
         if sections[section].name == "Trader James" {
-          
-            if  TraderjamesOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                
-                if day>=2 && day<=6{
+            if day>=2 && day<=6{
+                if  TraderjamesOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(TraderjamesOpen.last! - hour) hours and \(minute) minutes", detail: "\(TraderJWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(TraderjamesOpen.contains(hour) == true)
                 }
-                else if day == 1{
-                    sections[section].items = [Item.init(name: "Closes in \(TraderjamesOpen.last! - hour) hours and \(minute) minutes", detail: "\(TraderJSunday)")]
+                if !TraderjamesOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(TraderjamesOpen[0] - hour) hours and \(minute) minutes", detail: "\(TraderJWeekday)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!TraderjamesOpen.contains(hour) == true)
                 }
-                else if day == 7{
-                    sections[section].items = [Item.init(name: "Closes in \(TraderjamesOpen.last! - hour) hours and \(minute) minutes", detail: "\(TraderJSaturday)")]
-                }
-                assert(header.contentView.backgroundColor == colorGreen)
-                assert(TraderjamesOpen.contains(hour) == true)
-            }
-            if !TraderjamesOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(TraderjamesOpen[0] - hour) hours and \(minute) minutes", detail: "")]
-                assert(header.contentView.backgroundColor == colorRed)
-                assert(!TraderjamesOpen.contains(hour) == true)
-            }
-        }
-        if sections[section].name == "Mario's Pizza" {
-
-            if  MariosOpen.contains(hour)
-            {
                 
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=6{
-                    sections[section].items = [Item.init(name: "Closes in \(MariosOpen.last! - hour) hours and \(minute) minutes", detail: "\(MariosWeekday)")]
-                }
-                else if day == 1 || day == 7{
-                    sections[section].items = [Item.init(name: "Closes in \(MariosOpen.last! - hour) hours and \(minute) minutes", detail: "\(MariosWeekend)")]
-                }
-                assert(header.contentView.backgroundColor == colorGreen)
-                assert(MariosOpen.contains(hour) == true)
             }
-            if !MariosOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(MariosOpen[0] - hour) hours and \(minute) minutes", detail: "")]
-                assert(header.contentView.backgroundColor == colorRed)
-                assert(!MariosOpen.contains(hour) == true)
+            else if day == 1{
+                if  TraderjamesOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(TraderjamesOpen.last! - hour) hours and \(minute) minutes", detail: "\(TraderJSunday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(TraderjamesOpen.contains(hour) == true)
+                }
+                if !TraderjamesOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(TraderjamesOpen[0] - hour) hours and \(minute) minutes", detail: "\(TraderJSunday)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!TraderjamesOpen.contains(hour) == true)
+                }
+            }
+            else if day == 7{
+                if  TraderjamesOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(TraderjamesOpen.last! - hour) hours and \(minute) minutes", detail: "\(TraderJSaturday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(TraderjamesOpen.contains(hour) == true)
+                }
+                if !TraderjamesOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(TraderjamesOpen[0] - hour) hours and \(minute) minutes", detail: "\(TraderJSaturday)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!TraderjamesOpen.contains(hour) == true)
+                }
             }
         }
+        
+/////Mario's/////
+        if sections[section].name == "Mario's Pizza" {
+            if day>=2 && day<=6{
+                if  MariosOpen.contains(hour)
+                {
+                    
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(MariosOpen.last! - hour) hours and \(minute) minutes", detail: "\(MariosWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(MariosOpen.contains(hour) == true)
+                }
+                if !MariosOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(MariosOpen[0] - hour) hours and \(minute) minutes", detail: "\(MariosWeekday)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!MariosOpen.contains(hour) == true)
+                }
+            }
+            else if day == 1 || day == 7{
+                if  MariosOpen.contains(hour)
+                {
+                    
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(MariosOpen.last! - hour) hours and \(minute) minutes", detail: "\(MariosWeekend)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(MariosOpen.contains(hour) == true)
+                }
+                if !MariosOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(MariosOpen[0] - hour) hours and \(minute) minutes", detail: "\(MariosWeekend)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!MariosOpen.contains(hour) == true)
+                }
+            }
+        }
+        
+/////McConn/////
         if sections[section].name == "McConn Coffee Co." {
-            if  McconnOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day == 2 || day == 4 || day == 6{
+            if day == 2 || day == 4{
+                if  McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(McconnOpen.contains(hour) == true)
                 }
-                else if day == 3 || day == 5{
+                if !McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnTuTh)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!McconnOpen.contains(hour) == true)
+                }
+            }
+            else if day == 6{
+                if  McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(McconnOpen.contains(hour) == true)
+                }
+                if !McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+9
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnSaturday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!McconnOpen.contains(hour) == true)
+                }
+            }
+            else if day == 3 || day == 5{
+                if  McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "\(McConnTuTh)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(McconnOpen.contains(hour) == true)
                 }
-                else if day == 1{
+                if !McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnTuTh)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    }
+
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!McconnOpen.contains(hour) == true)
+                }
+            }
+            else if day == 1{
+                if  McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "\(McConnSunday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(McconnOpen.contains(hour) == true)
                 }
-                else if day == 7{
+                if !McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnSunday)")]
+                    if hour < 24 && hour > McconnOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnMWF)")]
+                    }
+
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!McconnOpen.contains(hour) == true)
+                }
+            }
+            else if day == 7{
+                if  McconnOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(McconnOpen.last! - hour) hours and \(minute) minutes", detail: "\(McConnSaturday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(McconnOpen.contains(hour) == true)
                 }
-                assert(header.contentView.backgroundColor == colorGreen)
-                assert(McconnOpen.contains(hour) == true)
+                
             }
             if !McconnOpen.contains(hour)
             {
                 header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "")]
+                sections[section].items = [Item.init(name: "Opens in \(McconnOpen[0] - hour) hours and \(minute) minutes", detail: "\(McConnSaturday)")]
+                if hour < 24 && hour > McconnOpen.last!{
+                    let tempTime = (23-hour)+19
+                    sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(McConnSunday)")]
+                }
+
                 assert(header.contentView.backgroundColor == colorRed)
                 assert(!McconnOpen.contains(hour) == true)
             }
         }
+        
+/////Library/////
         if sections[section].name == "Jackson Library" {
-            if  JacksonOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=5{
+            if day>=2 && day<=5{
+                if  JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(JacksonOpen.contains(hour) == true)
                 }
-                else if day == 6{
-                    sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonFriday)")]
+                if !JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!JacksonOpen.contains(hour) == true)
                 }
-                else if day == 7{
-                    sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
-                }
-                else if day == 1{
-                    sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonSunday)")]
-                }
-                assert(header.contentView.backgroundColor == colorGreen)
-                assert(JacksonOpen.contains(hour) == true)
             }
-            if !JacksonOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "")]
-                assert(header.contentView.backgroundColor == colorRed)
-                assert(!JacksonOpen.contains(hour) == true)
+            else if day == 6{
+                if  JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonFriday)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+11
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
+                    }
+
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(JacksonOpen.contains(hour) == true)
+                }
+                if !JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "\(JacksonFriday)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!JacksonOpen.contains(hour) == true)
+                }
+            }
+            else if day == 7{
+                if  JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+20
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonSunday)")]
+                    }
+
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(JacksonOpen.contains(hour) == true)
+                }
+                if !JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!JacksonOpen.contains(hour) == true)
+                }
+            }
+            else if day == 1{
+                if  JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonSunday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(JacksonOpen.contains(hour) == true)
+                }
+                if !JacksonOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(JacksonOpen[0] - hour) hours and \(minute) minutes", detail: "\(JacksonSunday)")]
+                    if hour < 24 && hour > JacksonOpen.last!{
+                        let tempTime = (23-hour)+7
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonMon_Thu)")]
+                    }
+
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!JacksonOpen.contains(hour) == true)
+                }
             }
         }
+        
+/////Rec Center/////
         if sections[section].name == "Rec & Wellness Center" {
-            if  RecOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorGreen
-                if day>=2 && day<=6{
+            if day>=2 && day<=5{
+                if  RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(RecOpen.contains(hour) == true)
                 }
-                else if day == 7{
-                    sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecSaturday)")]
+                if !RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+6
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!RecOpen.contains(hour) == true)
                 }
-                else if day == 1{
-                    sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecSunday)")]
-                }
-                assert(header.contentView.backgroundColor == colorGreen)
-                assert(RecOpen.contains(hour) == true)
             }
-            if !RecOpen.contains(hour)
-            {
-                header.contentView.backgroundColor = colorRed
-                sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "")]
-                assert(header.contentView.backgroundColor == colorRed)
-                assert(!RecOpen.contains(hour) == true)
+            else if day == 6{
+                if  RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(RecOpen.contains(hour) == true)
+                }
+                if !RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+8
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecSaturday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!RecOpen.contains(hour) == true)
+                }
+            }
+            else if day == 7{
+                if  RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecSaturday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(RecOpen.contains(hour) == true)
+                }
+                if !RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecSaturday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+14
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecSunday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!RecOpen.contains(hour) == true)
+                }
+            }
+            else if day == 1{
+                if  RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorGreen
+                    sections[section].items = [Item.init(name: "Closes in \(RecOpen.last! - hour) hours and \(minute) minutes", detail: "\(RecSunday)")]
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(RecOpen.contains(hour) == true)
+                }
+                if !RecOpen.contains(hour)
+                {
+                    header.contentView.backgroundColor = colorRed
+                    sections[section].items = [Item.init(name: "Opens in \(RecOpen[0] - hour) hours and \(minute) minutes", detail: "\(RecSunday)")]
+                    if hour < 24 && hour > RecOpen.last!{
+                        let tempTime = (23-hour)+6
+                        sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(RecWeekday)")]
+                    }
+                    assert(header.contentView.backgroundColor == colorRed)
+                    assert(!RecOpen.contains(hour) == true)
+                }
             }
         }
 
