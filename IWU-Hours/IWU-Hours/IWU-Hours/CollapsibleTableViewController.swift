@@ -13,19 +13,17 @@ import Foundation
 //
 
 class CollapsibleTableViewController: UITableViewController {
-    /*
     lazy var refresher: UIRefreshControl = {
        let refreshControl = UIRefreshControl()
        refreshControl.tintColor = .black
         refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
         return refreshControl
     }()
-    */
     var sections = sectionsData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ableView.refreshControl = refresher
+        tableView.refreshControl = refresher
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         // Auto resizing the height of the cell
         tableView.estimatedRowHeight = 54.0
@@ -33,7 +31,7 @@ class CollapsibleTableViewController: UITableViewController {
         self.title = "IWU Hours"
 
     }
-    /*
+    
     @objc
     func requestData()
     {
@@ -43,7 +41,6 @@ class CollapsibleTableViewController: UITableViewController {
         self.refresher.endRefreshing()
         }
     }
-    */
 }
 //
 // MARK: - View Controller DataSource and Delegate
@@ -107,6 +104,14 @@ extension CollapsibleTableViewController {
         let JacksonOpen = [7,8,9,10,11,12,13,14,15,16,17]
         let RecOpen = [7,8,9,10,11,12,13,14,15,16,17,18]
         
+        let SUNDAY = 1
+        let MONDAY = 2
+        let TUESDAY = 3
+        let WEDNESDAY = 4
+        let THURSDAY = 5
+        let FRIDAY = 6
+        let SATURDAY = 7
+        
         let BaldwinWeekdayBreakfast = "Breakfast: 7am-10am"
         let BaldwinWeekdayLunch = "Lunch: 11am-2pm"
         let BaldwinMon_ThuDinner = "Dinner: 5pm-6:30pm"
@@ -144,10 +149,6 @@ extension CollapsibleTableViewController {
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .none
         dateformatter.timeStyle = .short
-        //let now = dateformatter.string(from: Date()) //Current time
-        //let futureDate = Date(timeIntervalSinceNow: 29) //programed time
-        //let timeformatClose = "\(sections[section].name) Opens In \(24 - hour)"
-        //let timeformatOpen = "\(sections[section].name) Closes In \(24 - hour)"
 
         let colorRed = UIColor(hex: 0xFF736D)
         //let colorYellow = UIColor(hex: 0xfbffa0)
@@ -155,7 +156,7 @@ extension CollapsibleTableViewController {
         
 /////Baldwin/////
      if sections[section].name == "Baldwin Dining Room"{
-            if day>=2 && day<=5{
+            if day>=MONDAY && day<=THURSDAY{
                 if BaldwinOpenBreakfast.contains(hour){
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
@@ -185,7 +186,7 @@ extension CollapsibleTableViewController {
                     }
                 }
             }
-            else if day == 6{
+            else if day == FRIDAY{
                 if BaldwinOpenBreakfast.contains(hour){
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast)")]
@@ -215,7 +216,7 @@ extension CollapsibleTableViewController {
                     }
                 }
             }
-            else if day == 1{
+            else if day == SUNDAY{
                 if BaldwinUpcomingLunch.contains(hour){
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinSundayLunch)")]
@@ -241,7 +242,7 @@ extension CollapsibleTableViewController {
                     }
                 }
             }
-            else if day == 7{
+            else if day == SATURDAY{
                 if BaldwinUpcomingLunch.contains(hour){
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch)")]
@@ -271,7 +272,7 @@ extension CollapsibleTableViewController {
         
 /////Wildcat/////
         if sections[section].name == "Wildcat Express" {
-            if day>=2 && day<=5{
+            if day>=MONDAY && day<=THURSDAY{
                 if WildcatOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -292,7 +293,7 @@ extension CollapsibleTableViewController {
                 }
                 
             }
-            else if day == 6{
+            else if day == FRIDAY{
                 if WildcatOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -313,7 +314,7 @@ extension CollapsibleTableViewController {
                 }
                 
             }
-            else if day == 1{
+            else if day == SUNDAY{
                 if WildcatOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -333,7 +334,7 @@ extension CollapsibleTableViewController {
                     assert(!WildcatOpen.contains(hour) == true)
                 }
             }
-            else if day == 7{
+            else if day == SATURDAY{
                 if WildcatOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -357,7 +358,7 @@ extension CollapsibleTableViewController {
         
 /////C-Store/////
         if sections[section].name == "Trader James" {
-            if day>=2 && day<=6{
+            if day>=MONDAY && day<=FRIDAY{
                 if  TraderjamesOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -374,7 +375,7 @@ extension CollapsibleTableViewController {
                 }
                 
             }
-            else if day == 1{
+            else if day == SUNDAY{
                 if  TraderjamesOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -390,7 +391,7 @@ extension CollapsibleTableViewController {
                     assert(!TraderjamesOpen.contains(hour) == true)
                 }
             }
-            else if day == 7{
+            else if day == SATURDAY{
                 if  TraderjamesOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -410,7 +411,7 @@ extension CollapsibleTableViewController {
         
 /////Mario's/////
         if sections[section].name == "Mario's Pizza" {
-            if day>=2 && day<=6{
+            if day>=MONDAY && day<=FRIDAY{
                 if  MariosOpen.contains(hour)
                 {
                     
@@ -427,7 +428,7 @@ extension CollapsibleTableViewController {
                     assert(!MariosOpen.contains(hour) == true)
                 }
             }
-            else if day == 1 || day == 7{
+            else if day == SUNDAY || day == SATURDAY{
                 if  MariosOpen.contains(hour)
                 {
                     
@@ -448,7 +449,7 @@ extension CollapsibleTableViewController {
         
 /////McConn/////
         if sections[section].name == "McConn Coffee Co." {
-            if day == 2 || day == 4{
+            if day == MONDAY || day == WEDNESDAY{
                 if  McconnOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -468,7 +469,7 @@ extension CollapsibleTableViewController {
                     assert(!McconnOpen.contains(hour) == true)
                 }
             }
-            else if day == 6{
+            else if day == FRIDAY{
                 if  McconnOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -488,7 +489,7 @@ extension CollapsibleTableViewController {
                     assert(!McconnOpen.contains(hour) == true)
                 }
             }
-            else if day == 3 || day == 5{
+            else if day == TUESDAY || day == THURSDAY{
                 if  McconnOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -509,7 +510,7 @@ extension CollapsibleTableViewController {
                     assert(!McconnOpen.contains(hour) == true)
                 }
             }
-            else if day == 1{
+            else if day == SUNDAY{
                 if  McconnOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -530,7 +531,7 @@ extension CollapsibleTableViewController {
                     assert(!McconnOpen.contains(hour) == true)
                 }
             }
-            else if day == 7{
+            else if day == SATURDAY{
                 if  McconnOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -556,7 +557,7 @@ extension CollapsibleTableViewController {
         
 /////Library/////
         if sections[section].name == "Jackson Library" {
-            if day>=2 && day<=5{
+            if day>=MONDAY && day<=THURSDAY{
                 if  JacksonOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -576,7 +577,7 @@ extension CollapsibleTableViewController {
                     assert(!JacksonOpen.contains(hour) == true)
                 }
             }
-            else if day == 6{
+            else if day == FRIDAY{
                 if  JacksonOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -597,7 +598,7 @@ extension CollapsibleTableViewController {
                     assert(!JacksonOpen.contains(hour) == true)
                 }
             }
-            else if day == 7{
+            else if day == SATURDAY{
                 if  JacksonOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -618,7 +619,7 @@ extension CollapsibleTableViewController {
                     assert(!JacksonOpen.contains(hour) == true)
                 }
             }
-            else if day == 1{
+            else if day == SUNDAY{
                 if  JacksonOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -643,7 +644,7 @@ extension CollapsibleTableViewController {
         
 /////Rec Center/////
         if sections[section].name == "Rec & Wellness Center" {
-            if day>=2 && day<=5{
+            if day>=MONDAY && day<=THURSDAY{
                 if  RecOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -663,7 +664,7 @@ extension CollapsibleTableViewController {
                     assert(!RecOpen.contains(hour) == true)
                 }
             }
-            else if day == 6{
+            else if day == FRIDAY{
                 if  RecOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -683,7 +684,7 @@ extension CollapsibleTableViewController {
                     assert(!RecOpen.contains(hour) == true)
                 }
             }
-            else if day == 7{
+            else if day == SATURDAY{
                 if  RecOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
@@ -703,7 +704,7 @@ extension CollapsibleTableViewController {
                     assert(!RecOpen.contains(hour) == true)
                 }
             }
-            else if day == 1{
+            else if day == SUNDAY{
                 if  RecOpen.contains(hour)
                 {
                     header.contentView.backgroundColor = colorGreen
