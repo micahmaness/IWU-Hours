@@ -12,7 +12,8 @@ import Foundation
 // MARK: - View Controller
 //
 
-class CollapsibleTableViewController: UITableViewController {
+
+class CollapsibleTableViewController: UITableViewController { //Setup process for Table Refresh
     lazy var refresher: UIRefreshControl = {
        let refreshControl = UIRefreshControl()
        refreshControl.tintColor = .black
@@ -29,19 +30,23 @@ class CollapsibleTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 54.0
         tableView.rowHeight = UITableViewAutomaticDimension
         self.title = "IWU Hours"
-
     }
     
     @objc
-    func requestData()
+    
+    func requestData() //Refreshes Time and Table Data
     {
+        let minuteTest = 60 - NSCalendar.current.component(.minute,from: NSDate() as Date) //USED FOR TESTING
+        let minuteTest2 = NSCalendar.current.component(.minute,from: NSDate() as Date) //USED FOR TESTING
         self.tableView.reloadData()
-        
         let deadline = DispatchTime.now() + .milliseconds(700)
         DispatchQueue.main.asyncAfter(deadline: deadline){
         self.refresher.endRefreshing()
         self.tableView.reloadData()
-        print("refreshed")
+        let minuteTest3 = NSCalendar.current.component(.minute,from: NSDate() as Date) //USED FOR TESTING
+        print("refreshed " + "\(minuteTest) " + "\(minuteTest2)") //USED FOR TESTING
+        assert(minuteTest3 == minuteTest2) //USED FOR TESTING
+        assert(minuteTest + minuteTest3 == 60) //USED FOR TESTING
         }
         
     }
@@ -177,7 +182,7 @@ extension CollapsibleTableViewController {
      if sections[section].name == "Baldwin Dining Room"{
         
             //Checks day of week first for special cases because hours (both static and changing) depend on day
-            if day>=MONDAY && day<=WEDNESDAY{
+            if day>=MONDAY && day<=THURSDAY{
                 
                 //Specific to Baldwin, Check which meal of the day is currently open
                 if BaldwinOpenBreakfast.contains(hour){
@@ -225,7 +230,7 @@ extension CollapsibleTableViewController {
             }
         
             //Check for special case days
-            else if day == THURSDAY{
+            else if day == FRIDAY{
                 if BaldwinOpenBreakfast.contains(hour){
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast) \n\nBreakfast Menu: Scrambled Eggs, Bacon, Denver Eggs, Breakfast Potatoes, and French Toast.")]

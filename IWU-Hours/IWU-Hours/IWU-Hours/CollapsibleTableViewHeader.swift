@@ -19,7 +19,7 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     let arrowLabel = UILabel()
     
     let cellColorRed = UIColor(hex: 0xFE3C3C)
-    let cellColorGreen = UIColor(hex: 0x2DB738)
+    let cellColorGreen = UIColor(hex: 0xA8FFA9)
     let cellColorYellow = UIColor(hex: 0xF7DA35)
     let cellColorBlack = UIColor(hex: 0x000000)
     let cellColorWhite = UIColor(hex: 0xFFFFFF)
