@@ -177,7 +177,7 @@ extension CollapsibleTableViewController {
      if sections[section].name == "Baldwin Dining Room"{
         
             //Checks day of week first for special cases because hours (both static and changing) depend on day
-            if day>=MONDAY && day<=WEDNESDAY{
+            if day>=MONDAY && day<=THURSDAY{
                 
                 //Specific to Baldwin, Check which meal of the day is currently open
                 if BaldwinOpenBreakfast.contains(hour){
@@ -225,35 +225,49 @@ extension CollapsibleTableViewController {
             }
         
             //Check for special case days
-            else if day == THURSDAY{
+            else if day == FRIDAY{
                 if BaldwinOpenBreakfast.contains(hour){
+                    
+                    //If open, set color to green and display the current hours open
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenBreakfast.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast) \n\nBreakfast Menu: Scrambled Eggs, Bacon, Denver Eggs, Breakfast Potatoes, and French Toast.")]
 
                 }
                 else if BaldwinUpcomingLunch.contains(hour){
+                    
+                    //If closed, set color to red and display upcoming hours
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Opens in \(BaldwinOpenLunch[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch) \n\nLunch Menu: Meatloaf, Baked Cavatappi, Parsley Buttered Potatoes, Cabbage & Bacon, Broccoli, Italian Wraps, Cheddar Wurst, Fries")]
 
                 }
                 else if BaldwinOpenLunch.contains(hour){
+                    
+                    //If open, set color to green and display the current hours open
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenLunch.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinWeekdayLunch) \n\nLunch Menu: Meatloaf, Baked Cavatappi, Parsley Buttered Potatoes, Cabbage & Bacon, Broccoli, Italian Wraps, Cheddar Wurst, and Fries.")]
 
                 }
                 else if BaldwinUpcomingDinner.contains(hour){
+                    
+                    //If closed, set color to red and display upcoming hours
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Open in \(BaldwinOpenDinner[0] - hour) hours and \(minute) minutes", detail: "\(BaldwinFridayDinner) \n\nDinner Menu: Egg Bake, Breakfast Potatoes, Pancakes, Sausage Gravy & Biscuits, Hamburgers, Quesadillas, and Fries.")]
 
                 }
                 else if BaldwinOpenDinner.contains(hour){
+                    
+                    //If open, set color to green and display the current hours open
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(BaldwinOpenDinner.last! - hour) hours and \(minute) minutes", detail: "\(BaldwinFridayDinner) \n\nDinner Menu: Egg Bake, Breakfast Potatoes, Pancakes, Sausage Gravy & Biscuits, Hamburgers, Quesadillas, and Fries.")]
 
                 }
                 else if !BaldwinOpenDinner.contains(hour){
+                    
+                    //If closed, set color to red and display upcoming hours
                     header.contentView.backgroundColor = colorRed
                     sections[section].items = [Item.init(name: "Open in \(BaldwinOpenBreakfast[0] - (hour+1)) hours and \(minute) minutes", detail: "\(BaldwinWeekdayBreakfast) \n\nDinner Menu: Egg Bake, Breakfast Potatoes, Pancakes, Sausage Gravy & Biscuits, Hamburgers, Quesadillas, and Fries.")]
+                    
+                    //Test for after closed and before midnight to accomodate time wrapping past midnight to next day
                     if hour < 24 && hour > BaldwinOpenDinner.last!{
                         let tempTime = (23-hour)+11
                         sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(BaldwinSaturdayLunch) \n\nDinner Menu: Egg Bake, Breakfast Potatoes, Pancakes, Sausage Gravy & Biscuits, Hamburgers, Quesadillas, and Fries.")]
@@ -768,8 +782,8 @@ extension CollapsibleTableViewController {
                     sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonFriday)")]
                     }
 
-                    assert(header.contentView.backgroundColor == colorGreen)
-                    assert(JacksonOpen.contains(hour) == true)
+                    //assert(header.contentView.backgroundColor == colorGreen)
+                    //assert(JacksonOpen.contains(hour) == true)
                 }
                 if !JacksonOpen.contains(hour)
                 {
