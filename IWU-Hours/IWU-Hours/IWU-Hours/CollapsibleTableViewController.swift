@@ -626,6 +626,7 @@ extension CollapsibleTableViewController {
                 
             //Check for special case days
             else if day == FRIDAY{
+                
                 if  McconnOpen.contains(hour)
                 {
                     
@@ -774,17 +775,18 @@ extension CollapsibleTableViewController {
                 
             //Check for special case days
             else if day == FRIDAY{
+                
                 if  JacksonOpen.contains(hour)
                 {
                     
                     //If open, set color to green and display the current hours open
                     header.contentView.backgroundColor = colorGreen
                     sections[section].items = [Item.init(name: "Closes in \(JacksonOpen.last! - hour) hours and \(minute) minutes", detail: "\(JacksonFriday)")]
-                    }
 
-                    //assert(header.contentView.backgroundColor == colorGreen)
-                    //assert(JacksonOpen.contains(hour) == true)
+                    assert(header.contentView.backgroundColor == colorGreen)
+                    assert(JacksonOpen.contains(hour) == true)
                 }
+                
                 if !JacksonOpen.contains(hour)
                 {
                     
@@ -798,6 +800,7 @@ extension CollapsibleTableViewController {
                         sections[section].items = [Item.init(name: "Opens in \(tempTime) hours and \(minute) minutes", detail: "\(JacksonSaturday)")]
                     assert(header.contentView.backgroundColor == colorRed)
                     assert(!JacksonOpen.contains(hour) == true)
+                    }
                 }
             }
                 
